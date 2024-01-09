@@ -8,6 +8,10 @@ namespace Logbook.Lib
 {
     public class xmlRepository : IRepository
     {
+        public xmlRepository(string path)
+        {
+            
+        }
         public bool add(Entry entry)
         {
             throw new NotImplementedException();

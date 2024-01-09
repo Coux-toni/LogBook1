@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Logbook.Lib;
+
+Console.WriteLine("Willkommen beim Fahrtenbuch");
+
+IRepository repository = new xmlRepository("Logbook.xml");
+
