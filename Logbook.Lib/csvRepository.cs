@@ -8,6 +8,10 @@ namespace Logbook.Lib
 {
     public class csvRepository : IRepository
     {
+        public csvRepository(string path)
+        {
+            
+        }
         public bool add(Entry entry)
         {
             throw new NotImplementedException();
