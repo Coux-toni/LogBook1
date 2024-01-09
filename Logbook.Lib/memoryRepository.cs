@@ -23,7 +23,7 @@ namespace Logbook.Lib
             List<Entry> list = new List<Entry>()
             {
                 new Entry(DateTime.Now, DateTime.Now, 10000, 10100, "ZE-1234","Zell am See", "Salzburg"),
-                new Entry(DateTime.Now, DateTime.Now, 10100, 10200, "ZE-1234","Salzburg", "Zell am See")
+                new Entry(DateTime.Now, DateTime.Now, 10100, 10200, "ZE-1234","Salzburg", "Zell am See"),
             };
             return list;
         }

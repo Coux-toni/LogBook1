@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Logbook.Lib
 {
     public class xmlRepository : IRepository
     {
+        XElement _rootelement;
         public xmlRepository(string path)
         {
-            
+            if (File.Exists(path))
+            {
+                _rootelement = XElement.Load(path);
+            }
+            else 
+            { 
+                _rootelement = new XElement("entries");
+            }
         }
         public bool add(Entry entry)
         {
@@ -24,7 +33,11 @@ namespace Logbook.Lib
 
         public List<Entry> GetAll()
         {
-            throw new NotImplementedException();
+            var entries = from entry in this._rootelement.Descendants("entry")
+                          select entry;
+
+            // Objekt erstellen
+            // Liste zurückgeben
         }
 
         public bool save()
