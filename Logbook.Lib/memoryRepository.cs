@@ -33,16 +33,15 @@ namespace Logbook.Lib
 
         public bool update(Entry entry)
         {
-            int pos = list.IndexOf(entry);
-            
-            if(pos == -1)
+            var item = (from search in list
+                       where entry.ID == search.ID
+                       select search).FirstOrDefault();
+            if (item != null)
             {
-                return false;
-            }
-            else
-            {
+                item = entry;
                 return true;
             }
+            return false;
         }
     }
 }
