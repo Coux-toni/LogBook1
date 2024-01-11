@@ -17,7 +17,7 @@ namespace Logbook.Lib
 
         public bool delete(Entry entry)
         {
-            throw new NotImplementedException();
+            return list.Remove(entry);
         }
 
         public List<Entry> GetAll()
@@ -28,12 +28,21 @@ namespace Logbook.Lib
 
         public bool save()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool update(Entry entry)
         {
-            throw new NotImplementedException();
+            int pos = list.IndexOf(entry);
+            
+            if(pos == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
