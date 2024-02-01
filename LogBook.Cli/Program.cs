@@ -13,5 +13,5 @@ repository.add(entrySaalfelden);
 
  foreach (Entry entry in entries)
  {
-    Console.WriteLine(entry.From);
+    Console.WriteLine(entry);
  }
