@@ -35,6 +35,7 @@ namespace Logbook.Lib
         {
             var entries = from entry in this._rootelement.Descendants("entry")
                           select entry;
+            throw new NotImplementedException();
 
             // Objekt erstellen
             // Liste zurückgeben
