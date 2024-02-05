@@ -9,13 +9,13 @@ namespace Logbook.Lib
     public class memoryRepository : IRepository
     {
         List<Entry> list = new List<Entry>();
-        public bool add(Entry entry)
+        public bool Add(Entry entry)
         {
             list.Add(entry);
             return true;
         }
 
-        public bool delete(Entry entry)
+        public bool Delete(Entry entry)
         {
             return list.Remove(entry);
         }
@@ -26,12 +26,12 @@ namespace Logbook.Lib
             return list;
         }
 
-        public bool save()
+        public bool Save()
         {
             return true;
         }
 
-        public bool update(Entry entry)
+        public bool Update(Entry entry)
         {
             var item = (from search in list
                        where entry.ID == search.ID
