@@ -8,10 +8,10 @@ namespace Logbook.Lib
 {
     public interface IRepository
     {
-        bool add(Entry entry);
-        bool delete(Entry entry);
-        bool update(Entry entry);
-        bool save();
+        bool Add(Entry entry);
+        bool Delete(Entry entry);
+        bool Update(Entry entry);
+        bool Save();
 
         List<Entry> GetAll();
     }

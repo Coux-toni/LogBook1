@@ -12,12 +12,12 @@ namespace Logbook.Lib
         {
             
         }
-        public bool add(Entry entry)
+        public bool Add(Entry entry)
         {
             throw new NotImplementedException();
         }
 
-        public bool delete(Entry entry)
+        public bool Delete(Entry entry)
         {
             throw new NotImplementedException();
         }
@@ -27,12 +27,12 @@ namespace Logbook.Lib
             throw new NotImplementedException();
         }
 
-        public bool save()
+        public bool Save()
         {
             throw new NotImplementedException();
         }
 
-        public bool update(Entry entry)
+        public bool Update(Entry entry)
         {
             throw new NotImplementedException();
         }
