@@ -10,8 +10,11 @@ namespace Logbook.Lib
     public class xmlRepository : IRepository
     {
         XElement _rootelement;
+        private string _path;
+
         public xmlRepository(string path)
         {
+            _path = path;
             if (File.Exists(path))
             {
                 _rootelement = XElement.Load(path);
@@ -21,14 +24,47 @@ namespace Logbook.Lib
                 _rootelement = new XElement("entries");
             }
         }
-        public bool add(Entry entry)
+        public bool Add(Entry entry)
         {
-            throw new NotImplementedException();
+            XElement node = new XElement("entry");
+            var idAttrib = new XAttribute("id",entry.ID.ToString());
+            node.Add(idAttrib);
+
+            var startAttrib = new XAttribute("start", entry.Start.ToString());
+            node.Add(startAttrib);
+
+            var endAttrib = new XAttribute("end", entry.End.ToString());
+            node.Add(endAttrib);
+
+            var startkmAttrib = new XAttribute("startkm", entry.StartKM.ToString());
+            node.Add(startkmAttrib);
+
+            var endkmAttrib = new XAttribute("endkm", entry.EndKM.ToString());
+            node.Add(endkmAttrib);
+
+            var nplateAttrib = new XAttribute("numberplate", entry.NumberPlate.ToString());
+            node.Add(nplateAttrib);
+
+            var fromAttrib = new XAttribute("from", entry.From.ToString());
+            node.Add(fromAttrib);
+
+            var toAttrib = new XAttribute("to", entry.To.ToString());
+            node.Add(toAttrib);
+
+            node.Add(entry.Description.ToString());
+            _rootelement.Add(node);
+
+            return this.Save(); 
         }
 
-        public bool delete(Entry entry)
+        public bool Delete(Entry entry)
         {
-            throw new NotImplementedException();
+            var itemsDel = from e in _rootelement.Descendants("entry")
+                           where ((string)e.Attribute("id") ?? "") == entry.ID
+                           select e;
+
+            itemsDel.Remove();
+            return this.Save();
         }
 
         public List<Entry> GetAll()
@@ -41,12 +77,21 @@ namespace Logbook.Lib
             // Liste zurückgeben
         }
 
-        public bool save()
+        public bool Save()
         {
-            throw new NotImplementedException();
+            try
+            {
+                _rootelement.Save(_path);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return false;
+            }
         }
 
-        public bool update(Entry entry)
+        public bool Update(Entry entry)
         {
             throw new NotImplementedException();
         }
