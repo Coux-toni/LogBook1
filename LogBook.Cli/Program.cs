@@ -2,7 +2,8 @@
 
 Console.WriteLine("Willkommen beim Fahrtenbuch");
 
-IRepository repository = new memoryRepository();
+string path = "logbook.xml";
+IRepository repository = new xmlRepository(path);
 List<Entry> entries = repository.GetAll();
 
 repository.Add(new Entry(DateTime.Now, DateTime.Now.AddHours(2).AddMinutes(22), 25000, 25178, "ZE-XYZ123", "Zell am See", "München"));
