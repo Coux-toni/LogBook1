@@ -70,8 +70,20 @@ namespace Logbook.Lib
         public List<Entry> GetAll()
         {
             var entries = from entry in this._rootelement.Descendants("entry")
-                          select entry;
-            throw new NotImplementedException();
+                          select new Entry(
+                              Convert.ToDateTime(entry.Attribute("start").Value),
+                              Convert.ToDateTime(entry.Attribute("end").Value),
+                              (int)entry.Attribute("startkm"),
+                              (int)entry.Attribute("endkm"),
+                              entry.Attribute("numberplate").Value,
+                              entry.Attribute("from").Value,
+                              entry.Attribute("to").Value,
+                              entry.Attribute("id").Value
+                              )
+                              {
+                                    Description = entry.Value
+                              };
+            return entries.ToList<Entry>();
 
             // Objekt erstellen
             // Liste zurückgeben
@@ -93,7 +105,25 @@ namespace Logbook.Lib
 
         public bool Update(Entry entry)
         {
-            throw new NotImplementedException();
+            var item = (from e in _rootelement.Descendants("entry")
+                       where ((string)e.Attribute("id") ?? "") == entry.ID
+                       select e).FirstOrDefault();
+            if (item != null) 
+            {
+                item.SetAttributeValue("start", entry.Start.ToString());
+                item.SetAttributeValue("end", entry.End.ToString());
+                item.SetAttributeValue("startkm", entry.StartKM.ToString());
+                item.SetAttributeValue("endkm", entry.EndKM.ToString());
+                item.SetAttributeValue("numberplate", entry.NumberPlate.ToString());
+                item.SetAttributeValue("to", entry.To.ToString());
+                item.SetAttributeValue("from", entry.From.ToString());
+
+                return this.Save();
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
