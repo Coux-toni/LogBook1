@@ -12,6 +12,7 @@ namespace Logbook.Lib
         bool Delete(Entry entry);
         bool Update(Entry entry);
         bool Save();
+        Entry? Find(string id);
 
         List<Entry> GetAll();
     }
