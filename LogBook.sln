@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBookMaui", "LogBookMaui\LogBookMaui.csproj", "{A4594F1E-3261-46CB-AADC-BA473B85212D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBook.LogbookApp", "LogBookMaui\LogBook.LogbookApp.csproj", "{A4594F1E-3261-46CB-AADC-BA473B85212D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBook.Cli", "LogBook.Cli\LogBook.Cli.csproj", "{08CCA959-BE7B-46AA-A550-808343AA0FC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logbook.Lib", "Logbook.Lib\Logbook.Lib.csproj", "{8CFB0DDC-47D4-4C06-8D71-470F40CC3380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logbook.Lib", "Logbook.Lib\Logbook.Lib.csproj", "{8CFB0DDC-47D4-4C06-8D71-470F40CC3380}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
