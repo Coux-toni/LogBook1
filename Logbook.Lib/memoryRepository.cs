@@ -20,6 +20,14 @@ namespace Logbook.Lib
             return list.Remove(entry);
         }
 
+        public Entry? Find(string id)
+        {
+            var entries = from e in list
+                          where e.ID == id
+                          select e;
+            return entries.FirstOrDefault();
+        }
+
         public List<Entry> GetAll()
         {
           
