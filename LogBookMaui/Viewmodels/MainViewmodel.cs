@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Security.Identity;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Logbook.Lib;
 using System;
@@ -15,12 +16,18 @@ namespace LogBookMaui.Viewmodels
         public string Header => "Fahrtenbuch";
         IRepository _repository = repository;
 
+        [ObservableProperty]
         ObservableCollection<Logbook.Lib.Entry> _entries = [];
 
         [RelayCommand]
         void LoadData()
         {
+            var entries = _repository.GetAll();
 
+            foreach (var entry in entries)
+            {
+                Entries.Add(entry);
+            }
         }
     }
 }
