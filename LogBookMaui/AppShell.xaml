@@ -8,7 +8,7 @@
     Title="LogBookMaui">
 
     <ShellContent
-        Title="Home"
+        Title="Fahrtebuch"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
