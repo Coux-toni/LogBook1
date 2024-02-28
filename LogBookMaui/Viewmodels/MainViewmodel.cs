@@ -26,6 +26,7 @@ namespace LogBookMaui.Viewmodels
         DateTime _end = DateTime.Now;
 
         [ObservableProperty]
+        [NotifyCanExecuteChangedForAttribute(nameof(AddCommand))]
         string _description = string.Empty;
 
         [ObservableProperty]
@@ -60,18 +61,32 @@ namespace LogBookMaui.Viewmodels
             }
         }
 
-        [RelayCommand]
+        private bool CanAdd => this.Description.Length > 0 && this.From.Length > 0 && this.To.Length > 0 && this.StartKM > 0 && this.EndKM > 0;
+
+        [RelayCommand(CanExecute = nameof(CanAdd))]
         void Add()
         {
+            /*
             Logbook.Lib.Entry entrySaalfelden = new(DateTime.Now.AddDays(3), DateTime.Now.AddDays(3).AddMinutes(20),
                                   25500, 25514, "ZE-XYZ123", "Zell am See", "Saalfelden")
             {
                 Description = "Fahrt nach Saalfelden"
-            };
-            var result = _repository.Add(entrySaalfelden);
+            };*/
+
+            Logbook.Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.Numberplate, this.From, this.To);
+            var result = _repository.Add(entry);
+            if (this.Description.Length > 0) 
+            {
+                entry.Description = this.Description;
+            }
             if (result)
             {
-                this.Entries.Add(entrySaalfelden);
+                this.Entries.Add(entry);
+                this.Description = string.Empty;
+                this.From = "";
+                this.To = "";
+                this.StartKM = this.EndKM;
+                this.EndKM = 0;
             }
         }
     }
