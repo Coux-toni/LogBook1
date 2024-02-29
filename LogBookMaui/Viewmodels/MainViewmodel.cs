@@ -61,7 +61,7 @@ namespace LogBookMaui.Viewmodels
             }
         }
 
-        private bool CanAdd => this.Description.Length > 0 && this.From.Length > 0 && this.To.Length > 0 && this.StartKM > 0 && this.EndKM > 0;
+        private bool CanAdd => this.Description.Length > 0;
 
         [RelayCommand(CanExecute = nameof(CanAdd))]
         void Add()
