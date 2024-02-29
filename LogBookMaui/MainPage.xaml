@@ -94,6 +94,12 @@
         <!-- Ende Eingabe-->
             
         <!-- DETAILS -->
+        <Grid Padding="10" IsVisible="{Binding SelectedEntry}">
+            
+            
+        </Grid>
+            
+            
         </Grid>
     </ScrollView>
 </ContentPage>
