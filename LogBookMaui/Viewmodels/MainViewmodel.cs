@@ -18,6 +18,9 @@ namespace LogBookMaui.Viewmodels
         [ObservableProperty]
         ObservableCollection<Logbook.Lib.Entry> _entries = [];
 
+        [ObservableProperty]
+        Logbook.Lib.Entry _selectedEntry = null;
+
         #region Properties
         [ObservableProperty]
         DateTime _start = DateTime.Now;

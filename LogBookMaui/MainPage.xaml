@@ -13,7 +13,7 @@
     </ContentPage.Behaviors>
 
     <ScrollView>
-        <Grid RowDefinitions="180, Auto, Auto" Margin="10">
+        <Grid RowDefinitions="180, Auto, Auto" Margin="10" ColumnDefinitions="*,*">
        <!--
         <Label Text="{Binding Header}" FontSize="Subtitle"/>
         -->
@@ -26,8 +26,8 @@
                 <Label FontSize="Caption" FontAttributes="Bold" Grid.Column="3" Text="Nach" Padding="5"/>
             </Grid>
             <!-- Data -->
-            <CollectionView Grid.Row="1" ItemsSource="{Binding Entries}">
-                <CollectionView.EmptyView>
+                <CollectionView Grid.Row="1" ItemsSource="{Binding Entries}" SelectedItem="{Binding SelectedEntry}" SelectionMode="Single">
+                    <CollectionView.EmptyView>
                     <Label Padding="10" Text="Es wurde keine Fahrt hinzugefügt"></Label>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
@@ -92,6 +92,8 @@
             <Button Command="{Binding AddCommand}" Text="Speichern" Grid.Row="6" Grid.ColumnSpan="2"/>
             </Grid>
         <!-- Ende Eingabe-->
+            
+        <!-- DETAILS -->
         </Grid>
     </ScrollView>
 </ContentPage>
