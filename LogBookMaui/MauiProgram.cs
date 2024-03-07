@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Logbook.Lib;
-using LogBookMaui.Viewmodels;
+using LogBook.LogbookCore.ViewModels;
+using LogBookMaui.Pages;
 using Microsoft.Extensions.Logging;
 
 namespace LogBookMaui
@@ -20,6 +21,8 @@ namespace LogBookMaui
                 });
             builder.Services.AddSingleton<MainViewmodel>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<ReportViewModel>();
+            builder.Services.AddSingleton<ReportPage>();
             string path = FileSystem.Current.AppDataDirectory;
             string filename = "data.xml";
             string fullpath = System.IO.Path.Combine(path, filename);

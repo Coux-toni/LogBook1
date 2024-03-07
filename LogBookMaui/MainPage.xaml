@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:LogBookMaui.Viewmodels"
+             xmlns:viewmodels="clr-namespace:LogBook.LogbookCore.ViewModels;assembly=LogBook.LogbookCore"
              x:DataType="viewmodels:MainViewmodel"
+             Title="Fahrtenbuch"
              xmlns:model="clr-namespace:Logbook.Lib;assembly=Logbook.Lib"
              x:Class="LogBookMaui.MainPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -104,12 +105,11 @@
         <Grid Padding="10" IsVisible="{Binding SelectedEntry, Converter={StaticResource IsNullConverter}}" Grid.RowSpan="3" Grid.Column="1">
                 <Label Text="Bitte wählen Sie eine Fahrt aus" HorizontalOptions="Center" FontAttributes="Bold"></Label>
         </Grid>
-        <Grid Padding="10" IsVisible="{Binding SelectedEntry, Converter={StaticResource INotNullConverter}}" Grid.RowSpan="3" Grid.Column="1">
+            <Grid Padding="10" IsVisible="{Binding SelectedEntry, Converter={StaticResource IsNotNullConverter}}" Grid.RowSpan="3" Grid.Column="1">
                 <StackLayout>
                     <Label FontSize="Large" TextColor="{StaticResource Primary}" Text="{Binding SelectedEntry.Description, TargetNullValue='keine Beschreibung vorhanden'}"></Label>
                 </StackLayout>
-        </Grid>
-            
+            </Grid>
         </Grid>
     </ScrollView>
 </ContentPage>

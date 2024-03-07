@@ -3,13 +3,21 @@
     x:Class="LogBookMaui.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:LogBookMaui"
+    xmlns:local="clr-namspace:Logbook.LogbookApp"
+    xmlns:pages="clr-namespace:LogBookMaui.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="LogBookMaui">
 
-    <ShellContent
-        Title="Fahrtebuch"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
 
+
+    <TabBar>
+        <Tab Title="Fahrtenbuch">
+            <ShellContent
+                 ContentTemplate="{DataTemplate local:MainPage}"/>
+        </Tab>
+        <Tab Title="Bericht">
+            <ShellContent
+                 ContentTemplate="{DataTemplate pages:ReportPage}"/>
+        </Tab>
+    </TabBar>
 </Shell>

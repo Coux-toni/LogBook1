@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogBookMaui.Viewmodels
+namespace LogBook.LogbookCore.ViewModels
 {
     public partial class MainViewmodel(IRepository repository) : ObservableObject
     {

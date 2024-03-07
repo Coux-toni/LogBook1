@@ -1,4 +1,4 @@
-﻿using LogBookMaui.Viewmodels;
+﻿using LogBook.LogbookCore.ViewModels;
 
 namespace LogBookMaui
 {
