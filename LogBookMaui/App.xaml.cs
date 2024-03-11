@@ -1,4 +1,6 @@
-﻿namespace LogBookMaui
+﻿using Logbook.LogbookApp;
+
+namespace LogBookMaui
 {
     public partial class App : Application
     {

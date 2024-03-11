@@ -1,4 +1,4 @@
-﻿namespace LogBookMaui
+﻿namespace Logbook.LogbookApp
 {
     public partial class AppShell : Shell
     {

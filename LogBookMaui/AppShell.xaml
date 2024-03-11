@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="LogBookMaui.AppShell"
+    x:Class="Logbook.LogbookApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namspace:Logbook.LogbookApp"
-    xmlns:pages="clr-namespace:LogBookMaui.Pages"
+    xmlns:pages="clr-namspace:Logbook.LogbookApp.Pages"
     Shell.FlyoutBehavior="Disabled"
-    Title="LogBookMaui">
+    Title="Logbook.LogbookApp">
 
 
 
     <TabBar>
-        <Tab Title="Fahrtenbuch">
+        <Tab Title="Fahrtenbuch" Icon="list.png">
             <ShellContent
                  ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Bericht">
+        <Tab Title="Bericht" Icon="chart.png">
             <ShellContent
                  ContentTemplate="{DataTemplate pages:ReportPage}"/>
         </Tab>
